@@ -1,0 +1,54 @@
+<div class="flexContainer">
+
+    <form [formGroup]="teamForm" #formDir="ngForm" *ngIf="admin">
+
+        <h2 id="team-header">Team </h2>
+
+        <label for="name">Name</label>
+        <br>
+        <input id="name" type="text" formControlName="name" class="form-control" required>
+
+        <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert-danger">
+            <div class="errors">
+                <div *ngIf="name.errors?.['required']">
+                    Name is required.
+                </div>
+
+                <div *ngIf="name.errors?.['minlength']">
+                    Name must be at least 4 characters long.
+                </div>
+                <div *ngIf="name.errors?.['alphanumeric']">
+                    Name must contain only alphanumeric characters.
+                </div>
+                <div *ngIf="name.errors?.['unique']">
+                    Name already exists.
+                </div>
+
+            </div>
+
+        </div>
+        <br>
+
+        <button type="button" [disabled]="!teamForm.valid" (click)="onSubmit()">Submit</button>
+
+
+    </form>
+
+    <table class="teams">
+        <thead>
+            <tr>
+                <th>Teams</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let team of teams">
+                <td>
+                    <a routerLink="/team/{{team._id}}">
+                        <span class="badge"> {{team.name}} </span>
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <br><br><br>
+</div>

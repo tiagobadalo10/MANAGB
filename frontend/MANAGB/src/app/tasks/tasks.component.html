@@ -1,0 +1,82 @@
+<div class="flexContainer">
+    <form [formGroup]="taskForm" #formDir="ngForm" *ngIf="!admin">
+
+        <h2 id="task-header">Create Task </h2>
+
+        <label for="name">Name</label>
+        <br>
+        <input id="name" type="text" formControlName="name" class="form-control" required>
+
+        <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert-danger">
+            <div class="errors">
+                <div *ngIf="name.errors?.['required']">
+                    Name is required.
+                </div>
+
+                <div *ngIf="name.errors?.['minlength']">
+                    Name must be at least 4 characters long.
+                </div>
+                <div *ngIf="name.errors?.['alphanumeric']">
+                    Name must contain only alphanumeric characters.
+                </div>
+                <div *ngIf="name.errors?.['unique']">
+                    Name already exists.
+                </div>
+
+            </div>
+
+        </div>
+
+        <br>
+        <div class="priority">
+            <label for="priority">Priority: </label>
+
+            <select name="priority" id="priority" formControlName="priority" (change)="validateDates()">
+            <option *ngFor="let type of types()" [value]="type"> {{type}}</option>
+            </select>
+        </div>
+        <br><br>
+        
+        <label for="start_date">Choose a start date:</label>
+        <input type="datetime-local" id="start_date" name="start_date" formControlName="start_date" (change)="validateDates()">
+
+        <div class="errors" *ngIf="start_date.errors?.['after_today']">
+            <br>
+            Date must be after or equal today.
+        </div>
+
+        <br><br>
+
+        <label for="end_date">Choose a end date:</label>
+        <input type="datetime-local" id="end_date" name="end_date" formControlName="end_date" (change)="validateDates()">
+        
+        <div class="errors" *ngIf="end_date.errors?.['after_start_date']">
+            <br>
+            Date must be after start date.
+        </div>
+
+        <div class="errors" *ngIf="overlaps.errors?.['overlaps']">
+            <br>
+            Start date or end date or both overlaps one or more urgent tasks.
+        </div>
+        
+        <button type="button" [disabled]="!taskForm.valid" (click)="onSubmit()">Submit</button>
+
+    </form>
+
+
+
+    <table class="tasks">
+        <h2 id="table-tasks">Tasks: </h2>
+        <tr *ngFor="let task of tasks">
+            <td>
+                <a routerLink="/task/{{task._id}}">
+                    <span class="badge">{{task.name}}</span>
+                </a>
+            </td>
+            <td><button type="button" class="delete" title="delete task" (click)="delete(task)" *ngIf="!admin">Delete</button></td>
+        </tr>
+        <br><br><br><br><br>
+    </table>
+
+</div>

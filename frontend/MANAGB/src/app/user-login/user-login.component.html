@@ -1,0 +1,30 @@
+<div class="login-page">
+    <form [formGroup]="loginForm" #formDir="ngForm">
+        <div class="loginOptions">
+
+            <h2 id="login-header">Welcome back</h2>
+
+            <label for="name">Username</label>
+            <br>
+            <input id="name" type="text" formControlName="username" class="form-control" required>
+            <br>
+            <label for="password">Password</label>
+            <br>
+            <input id="password" type="password" formControlName="password">
+
+            <div class="auth-fail-placeholder">
+                <div *ngIf="authFail && loginForm.valid" id="auth-fail-alert">Wrong username or password!</div>
+            </div>
+            <br>
+
+            <button type="button" [disabled]="!loginForm.valid" (click)="onSubmit()">Login</button>
+
+        </div>
+    </form>
+</div>
+
+
+
+<div class="imagem_login">
+    <img src="../../assets/images/login-vector.png">
+</div>

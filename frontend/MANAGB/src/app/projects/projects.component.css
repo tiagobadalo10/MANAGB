@@ -1,0 +1,143 @@
+.pageContentProjects {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    top: 90px;
+}
+
+li a {
+    color: black;
+    text-decoration: none;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.projectOptions {
+    width: 50%;
+}
+
+#end_date,
+#start_date {
+    margin-left: 6px;
+    font-size: large;
+}
+
+#end_date {
+    margin-left: 12px;
+}
+
+#project-header {
+    font-size: 25px;
+    font-weight: 500;
+    text-align: center;
+    margin: 25px;
+}
+
+button {
+    border-radius: 4px;
+    padding: 12px 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    margin-top: 50px;
+    margin-left: 60px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: black;
+    color: white;
+}
+
+input[type=text] {
+    width: calc(100% - 120px);
+    min-width: 0;
+    padding: 12px 20px;
+    margin: 20px 60px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+label {
+    margin: 8px 60px;
+    font-size: 18px;
+}
+
+.tableContainer {
+    width: 50%;
+}
+
+table {
+    width: 100%;
+    margin-top: 30px;
+}
+
+td {
+    background-color: white;
+    text-align: center;
+}
+
+th {
+    color: white;
+    background-color: black;
+}
+
+th,
+td {
+    border: 1px solid black;
+}
+
+.buttons {
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    padding-right: 5%;
+}
+
+.buttons a {
+    position: absolute;
+    margin-left: 13px;
+    margin-top: 60px;
+}
+
+.errors {
+    margin-left: 60px;
+    font-family: "Open Sans", sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    color: red;
+}
+
+td a {
+    text-decoration: none;
+    color: #6464ff;
+}
+
+td a:hover {
+    color: blueviolet;
+}
+
+@media all and (min-width:300px) and (max-width: 600px) {
+    .pageContentProjects {
+        flex-direction: column;
+        position: relative;
+        top: 90px;
+    }
+    .projectOptions {
+        width: 100%;
+    }
+    .tableContainer {
+        margin-top: 50px;
+        width: 100%;
+        min-height: calc(60vh - 50px);
+    }
+    table {
+        width: 100%;
+        margin-top: 30px;
+    }
+}

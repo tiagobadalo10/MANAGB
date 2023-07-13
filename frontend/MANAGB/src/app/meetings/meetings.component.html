@@ -1,0 +1,70 @@
+<div class="pageContentMeetings">
+    <form [formGroup]="meetingForm" #formDir="ngForm">
+
+        <h2 id="meeting-header"> Book Meeting </h2>
+
+
+        <form [formGroup]="usersForm" (ngSubmit)="addUsers()">
+            <label for="users">Users: </label>
+            <select formControlName="user" id="users">
+                    <option *ngFor="let user of availableUsers" [ngValue]="user.name">{{user.name}}</option>
+                </select>
+            <button id="addUser" type="submit">Add</button>
+        </form>
+        <ul class="chosenUsrs"> Users on the meeting:
+            <li *ngFor="let user of meetingUsers">
+                <a routerLink="/user/{{user._id}}">
+                    <span class="badge">{{user.name}}</span>
+                </a>
+                <button type="button" class="delete" title="delete user" (click)="delete(user)">Delete</button>
+            </li>
+        </ul>
+
+        <br>
+        <label> Start date </label>
+        <input type="date" formControlName="start_date">
+        <br>
+        <label> End date </label>
+        <input type="date" formControlName="end_date">
+
+        <br>
+        <label for="duration"> Duration: </label>
+        <select class="duration" formControlName="duration">
+                <option *ngFor="let duration of durations" [ngValue]="duration">{{duration}}</option>
+            </select> minutes
+
+        <br><br>
+
+
+        <br>
+        <button type="button" (click)="checkDates()">Search for options</button>
+        <br><br><br><br>
+    </form>
+
+    <div class="datas">
+
+        <label> Choose date:</label>
+        <select id="datas">
+            <option *ngFor="let data of datas">{{data}}</option>
+        </select>
+        <button id="createMeeting" type="submit" (click)="createMeeting()"> Create Meeting</button>
+
+    </div>
+
+
+
+
+
+    <table class="meetings">
+        <h2 id="table-meetings">Meetings: </h2>
+        <tr *ngFor="let meeting of meetingsCurrentUser">
+            <td>
+                <a routerLink="/meeting/{{meeting._id}}">
+                    <span class="badge">{{meeting._id}}</span>
+                </a>
+            </td>
+            <td><button type="button" class="delete" title="delete meeting" (click)="deleteMeeting(meeting)" *ngIf="!admin">Delete</button></td>
+        </tr>
+        <br><br><br><br><br>
+    </table>
+</div>

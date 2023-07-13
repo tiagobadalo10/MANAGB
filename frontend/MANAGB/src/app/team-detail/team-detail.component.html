@@ -1,0 +1,66 @@
+<div *ngIf="team">
+
+    <br><br><br><br><br>
+    <div class="roundUp">
+        <h1>{{team.name}}</h1>
+        <div>
+
+            <ul class="users"> Users:
+                <li *ngFor="let user of team.users">
+                    <a routerLink="/user/{{user._id}}">
+                        <span class="badge">{{user.name}}</span>
+                    </a>
+                    <button *ngIf="admin" type="button" class="delete" title="delete user" (click)="delete(user)">Delete</button>
+                </li>
+            </ul>
+        </div>
+
+
+        <form [formGroup]="usersForm" (ngSubmit)="add()" *ngIf="admin">
+
+            <p> Available Users:
+
+                <select formControlName="user">
+
+                <option *ngFor="let user of usersAvailable" [ngValue]="user.name">{{user.name}}</option>
+            </select>
+
+                <button type="submit">Submit</button>
+            </p>
+
+        </form>
+
+
+        <div class="proj">
+            <p id="project-label">Project:</p>
+            <a *ngIf="project[0]" routerLink="/project/{{project[0]._id}}">
+                <a class="project"><span>{{project[0].name}}</span></a>
+            </a>
+            <button type="button" class="delete" (click)="deleteProject()" *ngIf="admin && project[0]">Delete project</button>
+        </div>
+        <br>
+
+        <form [formGroup]="projectsForm" (ngSubmit)="addTeam()" *ngIf="admin">
+
+
+            <p> Project:
+
+                <select formControlName="project">
+
+                <option *ngFor="let project of projectsAvailable" [ngValue]="project.acronym">{{project.name}}-{{project.acronym}}</option>
+            </select>
+
+                <button type="submit">Submit</button>
+            </p>
+
+        </form>
+
+    </div>
+
+    <div class="buttons">
+        <button type="button" class="back" (click)="goBack()" *ngIf="admin">Go back</button>
+        <button type="button" class="save" (click)="save()" *ngIf="admin">Save</button>
+    </div>
+
+    <br> <br> <br> <br> <br> <br>
+</div>

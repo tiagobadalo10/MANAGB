@@ -1,0 +1,169 @@
+.pageContentMeetings {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    top: 90px;
+}
+
+#meeting-header {
+    font-size: 25px;
+    font-weight: 500;
+    text-align: center;
+    margin: 25px;
+}
+
+form {
+    margin-left: 10%;
+    margin-right: 5%;
+    position: relative;
+}
+
+form button {
+    margin-left: 10px;
+}
+
+.chosenUsrs {
+    padding-left: 20%;
+}
+
+select {
+    width: 50%;
+    padding: 8px 15px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.duration {
+    width: 37%;
+    padding: 8px 15px;
+    margin: 8px 0;
+    margin-left: -55px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.buttons {
+    margin-left: 6%;
+    margin-top: 18%;
+}
+
+.chosenUsrs {
+    margin-top: 2%;
+    margin-left: 7%;
+}
+
+#users {
+    width: 150px;
+    margin: 0%;
+}
+
+ul {
+    list-style-type: none;
+}
+
+li a {
+    color: #6464ff;
+    text-decoration: none;
+    text-align: center;
+    margin-left: 10px;
+}
+
+li {
+    margin-top: 1.5%;
+}
+
+label {
+    margin: 8px 60px;
+    font-size: 18px;
+    margin-left: 20%;
+}
+
+.selectDaterange {
+    display: block;
+    width: 50%;
+    height: 20%;
+    margin-left: 20%;
+    padding: 2rem;
+}
+
+.mat-datepicker-content {
+    display: block;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px -1px #0003, 0 4px 5px #00000024, 0 1px 10px #0000001f;
+    background-color: #fff;
+    color: #000000de;
+}
+
+.mat-datepicker-content-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.errors {
+    margin-left: 60px;
+    font-family: "Open Sans", sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    color: red;
+}
+
+.hour {
+    margin-left: 30%;
+}
+
+button {
+    border-radius: 4px;
+    padding: 12px 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    margin-top: 50px;
+    margin-left: 60px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: black;
+    color: white;
+}
+
+table {
+    width: 50%;
+    margin-top: 30px;
+    border-collapse: separate;
+    border-spacing: 0 15px;
+}
+
+td {
+    text-align: center;
+}
+
+td a {
+    font-family: "Open Sans", sans-serif;
+    text-decoration: none;
+    color: #6464ff;
+}
+
+td a {
+    text-decoration: none;
+    color: #6464ff;
+}
+
+td a:hover {
+    color: blue;
+}
+
+.meetings {
+    margin-left: 20%;
+}
+
+#table-meetings {
+    text-align: center;
+}

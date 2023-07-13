@@ -1,0 +1,114 @@
+li a {
+    color: black;
+    text-decoration: none;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.flexContainer {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    top: 50px;
+    width: 100%;
+}
+
+button {
+    border-radius: 4px;
+    padding: 12px 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    margin-top: 50px;
+    margin-left: 60px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: black;
+    color: white;
+}
+
+
+label {
+    margin: 8px 60px;
+    font-size: 18px;
+}
+
+
+.errors {
+    margin-left: 60px;
+    font-family: "Open Sans", sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    color: red;
+}
+
+.showC {
+    border-radius: 4px;
+    padding: 10px 15px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 12px;
+    margin-top: -5%;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.showC:hover {
+    background-color: black;
+    color: white;
+}
+
+table {
+    width: 50%;
+    margin-top: 30px;
+    border-collapse: separate;
+    border-spacing: 0 15px;
+}
+
+td {
+    text-align: left;
+}
+
+td a {
+    font-family: "Open Sans", sans-serif;
+    text-decoration: none;
+    color: #6464ff;
+}
+
+td a {
+    text-decoration: none;
+    color: #6464ff;
+}
+
+td a:hover {
+    color: blue;
+}
+
+.users {
+    margin-left: 5%;
+}
+
+#users-label {
+    text-align: left;
+}
+
+@media screen and (max-width: 415px) {
+    .flexContainer {
+        position: relative;
+        flex-direction: column;
+        flex-wrap: wrap;
+        margin: 0px;
+    }
+    .users {
+        margin-left: 60px;
+        margin-top: 10%;
+    }
+    .flexContainer {
+        margin-bottom: 200px;
+    }
+}

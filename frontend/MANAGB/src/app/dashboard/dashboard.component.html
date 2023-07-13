@@ -1,0 +1,79 @@
+<div class="pageContentDashboard">
+
+    <div class="tasksContainer">
+        <h1> Your tasks</h1>
+        
+        <ul class="user-tasks">
+            <li *ngFor="let task of tasks">
+                <a routerLink="/task/{{task._id}}">
+                    <a id="name"> {{task.name}} </a>
+                    <br>
+                    <br>
+                    <br>
+        
+                    <a class="task-label">Progress - </a><a>{{task.progress}}%</a>
+        
+                    <a class="task-label-2">Priority -  </a><a>{{task.priority}}</a>
+                    <br>
+        
+                </a>
+            </li>
+            <br>
+        </ul>
+
+    </div>
+
+    <div class="availabilityContainer" *ngIf="!admin">
+
+        <h1> Unvailability Periods</h1>
+
+        <div class="avail-form-container">
+            <form [formGroup]="availabilityForm" #formDir="ngForm" id="availform">
+
+                <h2 id="project-header">Add new:</h2>
+
+                <div class="form-field">
+                    <label for="day">Day: </label>
+                    <input type="date" class="i-field" id="day" name="day" formControlName="day" (change)="validatesTime()">
+                </div>
+
+                <div class="form-field">
+                    <label for="start_time">Start Time: </label>
+                    <input type="time" class="i-field" id="start_time" name="start_time" formControlName="start_time" (change)="validatesTime()">
+                </div>
+
+                <div class="form-field">
+                    <label for="end_time">End Time: </label>
+                    <input type="time" class="i-field" id="end_time" name="end_time" formControlName="end_time" (change)="validatesTime()">
+                </div>
+
+                <div class="errors" *ngIf="this.availabilityForm.get('end_time')!.errors?.['wrong_time']">
+                    End time must be after start time
+                </div>
+
+                <br>
+                <button type="button" class="submit" [disabled]="!availabilityForm.valid" (click)="onSubmit()">Submit</button>
+            </form>
+        </div>
+
+        <ul class="avail-periods">
+            <li *ngFor="let period of periods">
+                <a>
+                    <a id="unavail-day"> {{period.day}} </a>
+                    <br>
+                    <br>
+                    <br>
+        
+                    <a class="unavail-label">From - </a><a>{{period.start}}</a>
+        
+                    <a class="unavail-label-2">To - </a><a>{{period.end}}</a>
+                    <br>
+        
+                </a>
+            </li>
+            <br>
+        </ul>
+
+    </div>
+
+</div>

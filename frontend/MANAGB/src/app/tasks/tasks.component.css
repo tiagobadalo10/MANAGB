@@ -1,0 +1,154 @@
+li a {
+    color: black;
+    text-decoration: none;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.flexContainer {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    top: 100px;
+}
+
+#task-header {
+    font-size: 25px;
+    font-weight: 500;
+    margin-left: 15%;
+}
+
+button {
+    border-radius: 4px;
+    padding: 12px 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    margin-top: 50px;
+    margin-left: 60px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: black;
+    color: white;
+}
+
+input[type=text] {
+    width: 400px;
+    padding: 12px 20px;
+    margin: 20px 60px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    position: relative;
+}
+
+label {
+    margin: 8px 60px;
+    font-size: 18px;
+}
+
+#priority {
+    width: 150px;
+    margin: 0%;
+}
+
+.errors {
+    margin-left: 60px;
+    font-family: "Open Sans", sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    color: red;
+}
+
+.delete {
+    border-radius: 4px;
+    padding: 10px 15px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 12px;
+    margin-top: -5%;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.delete:hover {
+    background-color: black;
+    color: white;
+}
+
+table {
+    width: 50%;
+    margin-top: 30px;
+    border-collapse: separate;
+    border-spacing: 0 15px;
+}
+
+td {
+    text-align: center;
+}
+
+td a {
+    font-family: "Open Sans", sans-serif;
+    text-decoration: none;
+    color: #6464ff;
+}
+
+td a {
+    text-decoration: none;
+    color: #6464ff;
+}
+
+td a:hover {
+    color: blue;
+}
+
+.tasks {
+    margin-left: 20%;
+}
+
+#table-tasks {
+    text-align: center;
+}
+
+@media screen and (max-width: 415px) {
+    .flexContainer {
+        position: relative;
+        flex-direction: column;
+        flex-wrap: wrap;
+        margin: 0px;
+    }
+    input[type=text] {
+        width: 280px;
+        padding: 12px 20px;
+        margin: 20px 60px;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        position: relative;
+    }
+    .tasks {
+        margin-left: 60px;
+        margin-top: 10%;
+    }
+    .priority {
+        margin-top: 2%;
+    }
+    .flexContainer {
+        margin-bottom: 200px;
+    }
+
+    #start_date {
+        width: 30%;
+    }
+
+    #end_date {
+        width: 30%;
+    }
+}

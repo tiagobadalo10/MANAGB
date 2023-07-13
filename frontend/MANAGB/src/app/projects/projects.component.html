@@ -1,0 +1,109 @@
+<div class="pageContentProjects">
+
+    <div class="projectOptions" *ngIf="admin">
+        <form [formGroup]="projectForm" #formDir="ngForm" id="myform">
+
+
+            <h2 id="project-header">Create Project </h2>
+
+            <label for="name">Name</label>
+            <br>
+            <input id="name" type="text" formControlName="name" class="form-control" required>
+
+            <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert-danger">
+                <div class="errors">
+                    <div *ngIf="name.errors?.['required']">
+                        Name is required.
+                    </div>
+
+                    <div *ngIf="name.errors?.['minlength']">
+                        Name must be at least 4 characters long.
+                    </div>
+                    <div *ngIf="name.errors?.['alphanumeric']">
+                        Name must contain only alphanumeric characters.
+                    </div>
+
+                </div>
+
+            </div>
+
+            <br>
+            <label for="acronym">Acronym</label>
+            <br>
+            <input id="acronym" type="text" formControlName="acronym">
+
+            <div *ngIf="acronym.invalid && (acronym.dirty || acronym.touched)" class="alert-danger">
+                <div class="errors">
+                    <div *ngIf="acronym.errors?.['required']">
+                        Acronym is required.
+                    </div>
+                    <div *ngIf="acronym.errors?.['minlength'] || acronym.errors?.['maxlength']">
+                        Acronym must have 3 characters.
+                    </div>
+                    <div *ngIf="acronym.errors?.['alphanumeric']">
+                        Acronym must contain only alphanumeric characters.
+                    </div>
+
+                    <div *ngIf="acronym.errors?.['unique']">
+                        Acronym already exists.
+                    </div>
+
+                </div>
+
+            </div>
+
+            <br><br>
+            <label for="start_date">Start Date: </label>
+            <input type="date" id="start_date" name="start_date" formControlName="start_date" (change)="validatesStartDate()">
+
+            <div class="errors" *ngIf="start_date.errors?.['after_today']">
+                <br>
+                Date must be after or equal today.
+            </div>
+
+            <br><br>
+            <label for="end_date">End Date: </label>
+            <input type="date" id="end_date" name="end_date" formControlName="end_date" (change)="validatesEndDate(start_date.value)">
+
+            <div class="errors" *ngIf="end_date.errors?.['after_start_date']">
+                <br>
+                Date must be after start date.
+            </div>
+
+            <br>
+            <button type="button" [disabled]="!projectForm.valid" (click)="onSubmit()">Submit</button>
+            <br><br><br><br>
+        </form>
+    </div>
+
+
+    <div class="tableContainer">
+        <table id="tabela" class="display">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Acronym</th>
+                    <th>Start Date</th>
+                    <th>End Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let project of projectsInTable">
+                    <td><a routerLink="/project/{{project._id}}">{{project.name}}</a></td>
+                    <td>{{project.acronym}}</td>
+                    <td>{{project.start_date.split("T")[0]}}</td>
+                    <td *ngIf="!project.end_date">{{project.end_date}}</td>
+                    <td *ngIf="project.end_date">{{project.end_date.split("T")[0]}}</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="buttons">
+            <button type="button" (click)="prevProjects()">Prev</button>
+            <a>{{page+1}} / {{pages+1}}</a>
+            <button type="button" (click)="nextProjects()">Next</button>
+
+        </div>
+    </div>
+    
+</div>

@@ -1,0 +1,120 @@
+ul {
+    list-style-type: none;
+}
+
+li a {
+    color: #6464ff;
+    text-decoration: none;
+    text-align: center;
+    margin-left: 55px;
+}
+
+li {
+    margin-top: 10px;
+}
+
+.roundUp {
+    margin-top: 5%;
+    margin-left: 5%;
+    margin-bottom: 5%;
+    background-color: white;
+    border-style: solid;
+    border-width: 3px;
+    border-radius: 5px;
+    width: 70%;
+}
+
+.projectName {
+    margin-top: 30px;
+    margin-left: 50px;
+    font-family: "Open Sans", sans-serif;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.projectAcronym {
+    margin-top: 30px;
+    margin-left: 50px;
+    font-family: "Open Sans", sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.start,
+.end {
+    margin-top: 30px;
+    margin-left: 50px;
+    font-family: "Open Sans", sans-serif;
+    font-size: 15px;
+}
+
+.newTasks {
+    margin-top: 30px;
+    margin-left: 30%;
+    width: 50%;
+}
+
+#save {
+    border-radius: 4px;
+    padding: 12px 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    margin-left: 10%;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+#back {
+    border-radius: 4px;
+    padding: 12px 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    margin-left: 15%;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+#save:hover,
+#back:hover {
+    background-color: black;
+    color: white;
+}
+
+.tasks-label {
+    margin-left: 50px;
+    margin-top: 20px;
+    font-size: large;
+    font-weight: bold;
+}
+
+.child {
+    display: inline-block;
+    width: 50%;
+    vertical-align: text-top;
+}
+
+.buttons {
+    margin-top: 49%;
+    margin-left: -55px;
+}
+
+.delete {
+    margin-left: 10px;
+}
+
+@media all and (min-width:300px) and (max-width: 600px) {
+    .flexCont {
+        display: flex;
+        flex-flow: column;
+    }
+    .child {
+        display: block;
+        width: 100%;
+    }
+    .roundUp {
+        margin-top: 10%;
+        width: 89%;
+    }
+}

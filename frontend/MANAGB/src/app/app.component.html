@@ -1,0 +1,31 @@
+<header>
+    <nav>
+        <div class="logo-container">
+            <a class="managb" routerLink=""> <img src='../../assets/images/MANAGB.png' alt="MANAGB"> </a>
+        </div>
+
+        <div *ngIf="logged" class="welcome-sign">Welcome {{this.name}}</div>
+
+        <a *ngIf="logged && admin" class="acess" id="signupA" routerLink="/signup">Registration</a>
+        <a *ngIf="!logged && router.url !== '/login'" class="acess" id="loginA" routerLink="/login">Log in</a>
+        <a *ngIf="logged" class="acess" (click)="logout()" routerLink="">Logout</a>
+
+    </nav>
+    <div *ngIf="logged" class="topbar">
+
+        <a *ngIf="logged" class="options" routerLink="/dashboard">Dashboard</a>
+        <a *ngIf="logged" class="options" routerLink="/projects">Projects</a>
+        <a *ngIf="logged" class="options" routerLink="/tasks">Tasks</a>
+        <a *ngIf="logged" class="options" routerLink="/teams">Teams</a>
+        <a *ngIf="logged" class="options" routerLink="/schedule">Schedule</a>
+        <a *ngIf="logged && !admin" class="options" routerLink="/meetings">Meetings</a>
+    </div>
+
+</header>
+
+<router-outlet></router-outlet>
+
+<div class="footer ">
+    <div class="footer-links ">Terms & Conditions | Privacy Policy | Security</div>
+    <div class="copyright ">© 2022. MANAGB Inc.</div>
+</div>

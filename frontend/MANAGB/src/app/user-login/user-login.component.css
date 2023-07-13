@@ -1,0 +1,110 @@
+.login-page {
+    position: relative;
+    top: 50px;
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+input[type=text] {
+    width: calc(100% - 120px);
+    min-width: 0;
+    padding: 12px 20px;
+    margin: 20px 60px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=password] {
+    width: calc(100% - 120px);
+    min-width: 0;
+    padding: 12px 20px;
+    margin: 20px 60px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+button {
+    border-radius: 15px;
+    padding: 16px 30px;
+    display: inline-block;
+    font-size: 16px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    margin: 20px 60px;
+    margin-top: 30px;
+    border-style: unset;
+    background-color: #a2e3eb;
+    color: #5e5e5e;
+    font-weight: 600;
+}
+
+button:hover {
+    background-color: #5ed9ea;
+}
+
+.imagem_login {
+    position: fixed;
+    bottom: 70px;
+    right: 40px;
+    z-index: -128;
+    width: 280px;
+    height: auto;
+}
+
+.imagem_login>img {
+    width: inherit;
+}
+
+@media only screen and (max-width: 490px) {
+    .imagem_login {
+        display: none;
+    }
+}
+
+@media only screen and (max-height: 732px) {
+    .imagem_login {
+        display: none;
+    }
+}
+
+label {
+    margin: 8px 60px;
+    font-size: 18px;
+}
+
+.loginOptions {
+    /* position: fixed; */
+    top: 50px;
+    width: 100%;
+    max-width: 650px;
+}
+
+ul {
+    margin-left: 10%;
+    font-size: large;
+}
+
+#login-header {
+    font-size: 25px;
+    font-weight: 400;
+    text-align: center;
+    margin: 25px;
+}
+
+.auth-fail-placeholder {
+    display: inline-block;
+    margin-left: 60px;
+    margin-top: 10px;
+    min-width: 235px;
+}
+
+#auth-fail-alert {
+    display: inline-block;
+    font-family: "Open Sans", sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    color: red;
+}

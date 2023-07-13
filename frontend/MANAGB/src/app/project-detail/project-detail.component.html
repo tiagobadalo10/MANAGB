@@ -1,0 +1,53 @@
+<div class="flexCont">
+
+    <div *ngIf="project">
+        <br> <br> <br> <br> <br>
+        <div class="child">
+            <div class="newTasks">
+                <h2 *ngIf="!admin">Associate Task:</h2>
+                <form [formGroup]="tasksForm" (ngSubmit)="add()" *ngIf="!admin">
+
+                    <p>
+
+                        <select formControlName="task">
+
+                            <option *ngFor="let task of tasksAvailable" [ngValue]="task._id">{{task.name}}</option>
+                        </select>
+
+                        <button type="submit">Submit</button>
+                    </p>
+
+                </form>
+
+                <div *ngIf="!admin" class="buttons">
+                    <button type="button" id="back" (click)="goBack()">Go back</button>
+                    <button type="button" id="save" (click)="save()">Save</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="child">
+            <div class="roundUp">
+                <div class="projectName">{{project.name}}</div><br>
+                <div class="projectAcronym">Acronym: {{project.acronym}}</div>
+                <div class="start">Start Date: {{project.start_date.split("T")[0]}}</div>
+                <div class="end" *ngIf="project.end_date">End Date: {{project.end_date.split("T")[0]}}</div>
+                <div class="tasks-label">Tasks:</div>
+                <div>
+                    <ul class="tasks" *ngIf="project.tasks">
+                        <li *ngFor="let task of project.tasks">
+                            <a routerLink="/task/{{task._id}}">
+                                <span class="badge">{{task.name}}</span>
+                            </a>
+                            <button *ngIf="!admin" type="button" class="delete" title="delete task" (click)="delete(task)">Delete</button>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <br><br><br><br><br><br><br><br>
+</div>

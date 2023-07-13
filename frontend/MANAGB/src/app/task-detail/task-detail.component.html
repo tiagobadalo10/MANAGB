@@ -1,0 +1,84 @@
+<div class="flexCont">
+
+    <div *ngIf="task">
+        <br> <br> <br> <br> <br>
+
+        <div class="child">
+            <div class="freeUsers">
+                <form [formGroup]="usersForm" (ngSubmit)="add()" *ngIf="!admin">
+
+                    <p>Available Users:
+
+                        <select formControlName="user">
+
+                            <option *ngFor="let user of usersAvailable" [ngValue]="user.name">{{user.name}}</option>
+                        </select>
+
+                        <button type="submit">Submit</button>
+                    </p>
+
+                </form>
+            </div>
+
+
+            <br>
+            <div class="buttons" *ngIf="!admin">
+                <button type="button" id="back" (click)="goBack()">Go back</button>
+                <button type="button" id="save" [disabled]="!taskForm.valid" (click)="save()">Save</button>
+            </div>
+        </div>
+
+        <div class="child">
+            <div class="roundUp">
+                <br>
+                <div class="taskName">
+                    {{task.name}}
+                </div>
+                <div class="taskProg">Task Progress: {{task.progress}}%
+                    <br>
+                    <progress *ngIf="admin" value="{{task.progress}}" max="100">{{task.progress}}%</progress>
+                    <div *ngIf="!admin">
+                        <input type="range" min="0" max="100" value="{{task.progress}}" (input)="getProgress($event)">
+                    </div>
+
+                </div>
+                <div class="priority">
+                    <a>Priority: {{task.priority}} </a>
+                </div>
+                <form [formGroup]="taskForm" #formDir="ngForm">
+                    <div class="start_date">
+                        Start date:
+                        <a *ngIf="task.start_date && admin">{{task.start_date.split("T")[0]}} {{task.start_date.split("T")[1].split(".")[0]}}H</a>
+                        <input *ngIf="!admin" type="datetime-local" id="start_date" name="start_date" formControlName="start_date" (change)="validatesEndDate()">
+                    </div>
+                    <div class="end_date">
+                        End date:
+                        <a *ngIf="task.start_date && admin">{{task.end_date.split("T")[0]}} {{task.end_date.split("T")[1].split(".")[0]}}H</a>
+                        <input *ngIf="!admin" type="datetime-local" id="start_date" name="start_date" formControlName="end_date" (change)="validatesEndDate()">
+                        <div class="errors" *ngIf="end_date.errors?.['after_start_date']">
+                            <br>
+                            Date must be after start date.
+                        </div>
+                
+                        <div class="errors" *ngIf="overlaps.errors?.['overlaps']">
+                            <br>
+                            Start date or end date or both overlaps one or more urgent tasks.
+                        </div>
+                    </div>
+                </form>
+                <br>
+                <div>
+                    <a id="users-label">Users:</a>
+                    <ul class="users">
+                        <li *ngFor="let user of task.users">
+                            <a routerLink="/user/{{user._id}}">
+                                <span class="badge">{{user.name}}</span>
+                            </a>
+                            <button type="button" class="delete" title="delete user" *ngIf="!admin" (click)="delete(user)">Delete</button>
+                        </li>
+                    </ul>
+
+
+                </div>
+            </div>
+        </div>

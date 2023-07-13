@@ -1,0 +1,140 @@
+div:first-of-type {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.roundUp {
+    margin-top: 5%;
+    margin-left: 5%;
+    margin-bottom: 5%;
+    background-color: white;
+    border-style: solid;
+    border-width: 3px;
+    border-radius: 5px;
+    width: 45%;
+    min-width: 10%;
+}
+
+h1 {
+    margin-top: 30px;
+    margin-left: 70px;
+    font-family: "Open Sans", sans-serif;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.users {
+    font-size: 18px;
+    margin-top: 30px;
+    margin-left: 3%;
+    font-family: "Open Sans", sans-serif;
+    font-weight: bold;
+}
+
+ul {
+    list-style-type: none;
+}
+
+li a {
+    color: #6464ff;
+    text-decoration: none;
+    text-align: center;
+    margin-left: 10px;
+    line-height: 40px;
+    font-weight: lighter;
+}
+
+.delete {
+    margin-left: 20px;
+}
+
+button:hover {
+    background-color: black;
+    color: white;
+}
+
+p {
+    margin-left: -25px;
+}
+
+form {
+    margin-left: 10%;
+    margin-right: 5%;
+    position: relative;
+}
+
+form button {
+    margin-left: 10px;
+}
+
+.proj {
+    margin-left: 50px;
+}
+
+.save {
+    border-radius: 4px;
+    padding: 12px 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    margin-left: 10%;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.back {
+    border-radius: 4px;
+    padding: 12px 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    margin-left: 15%;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.save:hover,
+.back:hover {
+    background-color: black;
+    color: white;
+}
+
+.proj a {
+    text-decoration: none !important;
+    color: #6464ff;
+    margin-left: 2%;
+    font-weight: lighter;
+    line-height: 40px;
+    font-size: 18px;
+    font-family: "Open Sans", sans-serif;
+}
+
+.roundUp ul li {
+    margin-left: 5%;
+}
+
+.proj {
+    margin-left: 10%;
+    
+}
+
+.proj p {
+    font-size: 18px;
+    font-family: "Open Sans", sans-serif;
+    font-weight: bold;
+}
+
+@media screen and (max-width: 415px) {
+    .roundUp {
+        margin-top: 5%;
+        margin-left: 5%;
+        margin-bottom: 5%;
+        background-color: white;
+        border-style: solid;
+        border-width: 3px;
+        border-radius: 5px;
+        width: 90%;
+        min-width: 10%;
+    }
+}
